@@ -1,27 +1,20 @@
-<% provide(:title, "自分の本棚") %>
-    <div class="right">
-        <div class="right_top">
-            <p>自分の本棚</p>
-        </div>
-        <div class="right_top2">
-            <div class="photo"></div>
-            <div class="name">
-                <p>名前</p>
-                <p>職業</p>
-                <p>フォロー中</p>
-                <p>フォロワー</p>
-                <p>フォロー</p>
-            </div>
-        </div>
-        <div class="right_content">
-                <div class="book"><img src="./img/51srrwLATIL._SX218_BO1,204,203,200_QL40_ML2_.jpg" alt=""></div>
-                <div class="book"><img src="./img/81APAg5DutL._AC._SR360,460.jpg" alt=""></div>
-                <div class="book"><img src="./img/81O50g96bwL._AC._SR360,460.jpg" alt=""></div>
-                <div class="book"><img src="./img/9160JJpexVL._AC._SR360,460.jpg" alt=""></div>
-                <div class="book"><img src="./img/91Xo5MLQptL._AC._SR360,460.jpg" alt=""></div>
-                <div class="book"><img src="./img/91Xo5MLQptL._AC._SR360,460.jpg" alt=""></div>
-                <div class="book"><img src="./img/91Xo5MLQptL._AC._SR360,460.jpg" alt=""></div>
-                <div class="book"><img src="./img/91Xo5MLQptL._AC._SR360,460.jpg" alt=""></div>
-        </div>
+<% provide(:title, '新規登録') %>
+<div class="right">
+    <div class="right_top">
+        <p>マイページ</p>
+    </div>
+    <div class="form">
+      <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+  
+        <%= f.label :email, "メールアドレス" %>
+        <%= f.email_field :email, class: 'form-control' %>
+  
+        <%= f.label :password, "パスワード" %>
+        <%= f.password_field :password, class: 'form-control' %>
+  
+        <%= f.submit "ログイン", class: "btn btn-primary" %>
+      <% end %>
+  
+      <p>登録がまだの方はこちら→ <%= link_to "新規登録", signup_path %></p>
     </div>
 </div>

@@ -1,5 +1,13 @@
 <div class="main">
     <div class="left">
-        <p><%= link_to "自分の本棚", root_path %></p>
-        <p>他人の本棚</p>
+        
+        <% if logged_in? %>
+          <p><%= link_to "マイページ", current_user, class: "mypage" %></p>
+        <% else %>
+          <p><%= link_to "マイページ", root_path, class: "mypage" %></p>
+        <% end %>
+        
+        <p><%= link_to "ユーザー", users_path, class: "mypage" %></p>
+        
+        
     </div>

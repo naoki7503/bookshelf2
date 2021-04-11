@@ -1,12 +1,12 @@
 <header class="header">
     <div class="header_inner inner">
-        <h1 class="header_logo">Bookshelf　<span>～本棚共有アプリ～</span></h1>
+        <h1 class="header_logo">ビスケ <span>～おすすめ本、掲載アプリ～</span></h1>
         <nav class="header_nav">
             <ul class="header_list">
-                <li class="header_item"><%= link_to "新規登録", signup_path, class: "header_link" %></li>
                 <% if logged_in? %>
                   <li class="header_item"><%= link_to "ログアウト", logout_path, method: :delete, class: "header_link" %></li>
                 <% else %>
+                  <li class="header_item"><%= link_to "新規登録", signup_path, class: "header_link" %></li>
                   <li class="header_item"><%= link_to "ログイン", login_path, class: "header_link" %></li>
                 <% end %>
             </ul>

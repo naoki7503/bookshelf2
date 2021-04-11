@@ -1,25 +1,40 @@
 <% provide(:title, '新規登録') %>
 <div class="right">
     <div class="right_top">
-        <p>自分の本棚</p>
+        <p>新規登録</p>
     </div>
-    <div>
+    <div class="form">
         <%= form_with(model: @user, local: true) do |f| %>
-          <%= render 'shared/error_messages' %>
+          <%= render 'shared/error_messages', object: f.object %>
     
-          <%= f.label :name %>
+          <%= f.label :name, '名前' %>
           <%= f.text_field :name, class: 'form-control' %>
-    
-          <%= f.label :email %>
+          
+          <div class="form-group">
+            <%= f.label :sex, '性別' %>
+            <%= f.select :sex, {'男性': '男性', '女性': '女性'}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+          </div>
+          
+          <div class="form-group">
+            <%= f.label :age, '年齢' %>
+            <%= f.select :age, {'０～１０歳': '０～１０歳', '１１～２０歳': '１１～２０歳'}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+          </div>
+          
+          <div class="form-group">
+            <%= f.label :profession, '職業' %>
+            <%= f.select :profession, {'大学生': '大学生', '医者': '医者'}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+          </div>
+        
+          <%= f.label :email, 'メールアドレス' %>
           <%= f.email_field :email, class: 'form-control' %>
-    
-          <%= f.label :password %>
+      
+          <%= f.label :password, 'パスワード' %>
           <%= f.password_field :password, class: 'form-control' %>
     
-          <%= f.label :password_confirmation, "Confirmation" %>
+          <%= f.label :password_confirmation, "パスワードの確認" %>
           <%= f.password_field :password_confirmation, class: 'form-control' %>
     
-          <%= f.submit "Create my account", class: "btn btn-primary" %>
+          <%= f.submit "登録する", class: "btn btn-primary" %>
         <% end %>
     </div>
 </div>

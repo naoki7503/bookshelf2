@@ -1,20 +1,20 @@
-<% provide(:title, '新規登録') %>
+<% provide(:title, 'ログイン') %>
 <div class="right">
     <div class="right_top">
-        <p>自分の本棚</p>
+        <p>マイページ</p>
     </div>
-    <div>
+    <div class="form">
       <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
   
-        <%= f.label :email %>
+        <%= f.label :email, "メールアドレス" %>
         <%= f.email_field :email, class: 'form-control' %>
   
-        <%= f.label :password %>
+        <%= f.label :password, "パスワード" %>
         <%= f.password_field :password, class: 'form-control' %>
   
         <%= f.submit "ログイン", class: "btn btn-primary" %>
       <% end %>
   
-      <p>New user? <%= link_to "新規登録", signup_path %></p>
+      <p>登録がまだの方はこちら→ <%= link_to "新規登録", signup_path %></p>
     </div>
 </div>

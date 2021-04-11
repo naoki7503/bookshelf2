@@ -1,17 +1,30 @@
 <% provide(:title, @user.name) %>
 <div class="right">
         <div class="right_top">
-            <p><%= @user.name %>の本棚</p>
+            <p><%= @user.name %>のページ</p>
         </div>
+        
         <div class="right_top2">
-            <div class="photo"></div>
-            <div class="name">
-                <p>名前：<%= @user.name %></p>
-                <p>職業</p>
-                <p>フォロー中</p>
-                <p>フォロワー</p>
-                <p>フォロー</p>
-            </div>
+          <div class="photo"></div>
+          <div class="name">
+              <p>名前：<%= @user.name %></p>
+              <p>性別：<%= @user.sex %></p>
+              <p>年齢：<%= @user.age %></p>
+              <p>職業：<%= @user.profession %></p>
+              <%= render 'shared/stats' %>
+              <%= render 'follow_form' if logged_in? %>
+          </div>
+        </div>
+        <div class="right_content">
+          
+          <%= render 'shared/micropost_form' %>
+  
+          <% if @user.microposts.any? %>
+              <%= render @microposts %>
+          <% end %>
+          
         </div>
     </div>
 </div>
+
+
